@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path')
+
 /**
  * Puerto
  */
@@ -37,3 +40,12 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+/**
+ * ruta uploads usuarios
+ */
+process.env.ruta_usuarios = path.resolve(__dirname, `../../uploads/usuarios/`);
+/**
+ * ruta uploads PRODUCTOS
+ */
+process.env.ruta_productos = path.resolve(__dirname, `../../uploads/productos/`);
