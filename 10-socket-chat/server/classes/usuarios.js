@@ -1,3 +1,10 @@
+// {
+//     id: 'ALkjdaklsdj-asdkj',
+//     nombre: 'Fernando',
+// }
+
+
+
 class Usuarios {
 
     constructor() {
@@ -5,18 +12,18 @@ class Usuarios {
     }
 
     agregarPersona(id, nombre, sala) {
-        let persona = {
-            id,
-            nombre,
-            sala
-        };
+
+        let persona = { id, nombre, sala };
 
         this.personas.push(persona);
-        return persona;
+
+        return this.personas;
+
     }
 
     getPersona(id) {
-        let persona = this.personas.find(persona => persona.id === id);
+        let persona = this.personas.filter(persona => persona.id === id)[0];
+
         return persona;
     }
 
@@ -24,17 +31,24 @@ class Usuarios {
         return this.personas;
     }
 
-    getPersonaPorSala(idSala) {
-        let personas = this.personas.filter(persona => persona.sala === idSala);
-        return personas;
+    getPersonasPorSala(sala) {
+        let personasEnSala = this.personas.filter(persona => persona.sala === sala);
+        return personasEnSala;
     }
 
     borrarPersona(id) {
-        const borrada = this.getPersona(id);
-        this.personas.filter(persona => persona.id !== id);
-        return borrada;
+
+        let personaBorrada = this.getPersona(id);
+
+        this.personas = this.personas.filter(persona => persona.id != id);
+
+        return personaBorrada;
+
     }
+
+
 }
+
 
 module.exports = {
     Usuarios
